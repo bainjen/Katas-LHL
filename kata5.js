@@ -5,8 +5,18 @@
 
 // Use some sort of looping. Do Not use String.prototype.replace
 
-const urlEncode = function(text) {
-  // Put your solution here
+const urlEncode = function (text) {
+  let replacement = "%20"
+  let newString = [];
+  for (let i = 0; i < text.length; i++) {
+    let character = text[i];
+    if (character === " ") {
+      newString.push(replacement);
+    } else {
+      newString.push(character); 
+    }
+  }
+  console.log(newString);
 };
 
 console.log(urlEncode("Lighthouse Labs"));
