@@ -6,26 +6,57 @@
 
 // INPUT
 
-const repeatNumbers = function (data) {
-  let retString = "";
-  for (let d = 0; d < data.length; d++) {
-    let pairs = data[d];
-    // console.log(pairs); 
-    // console.log(pairs[0]);
-    // console.log(pairs[1]);
-    // console.log('String!'.repeat(pairs[1]));
-    // console.log(pairs[0].toString());
-    let inString = pairs[0].toString();
-    retString = inString.repeat(pairs[1]);
-  }  
-  return retString;
-};
+// const repeatNumbers = function (data) {
+//   // let retString = "";
+//   let newArray = []; 
+//   for (let d = 0; d < data.length; d++) {
+//     const pairs = data[d];
+//     // for (let a = 0; a < pairs.length; a++) {
+//       const numOne = pairs[0];
+//       const numTwo = pairs[1];
+//     //   // console.log(numOne);
+//     // console.log(numTwo);
+//     let string = numOne.toString();
+//     const retString = string.repeat(numTwo);
+  
+//     // console.log(typeof retString)
+//     // retString = retString.concat(string);
+//     // console.log(retString.concat(","));
+//     // console.log(typeof (retString));
+//     // console.log(retString);
+//     newArray.push(retString);
+//     // console.log(newArray);
+
+//     //^^^this is returning the right answers but not in strings separated by commas. 
+   
+//       // console.log(pairs[1]); 
+//       // console.log(pairs[0])
+//       // console.log(data[d]);
+//       // console.log(pairs[0]);
+//       // console.log(pairs[1]);
+//       // console.log('String!'.repeat(pairs[1]));
+//       // console.log(pairs[0].toString());
+ 
+//       // // console.log(inString + pairs[1]);
+//       // let firstNum = pairs[0];
+//       // // console.log(firstNum);
+//       // let inString = firstNum.toString();
+//       // // console.log(inString);
+//       // retString = inString.repeat(pairs[1]);
+
+    
+//     // }
+  
+//   }  
+//   // return retString;
+//   return newArray.join(", "); 
+// };
 
 
 
-console.log(repeatNumbers([[1, 10]]));
-console.log(repeatNumbers([[1, 2], [2, 3]]));
-console.log(repeatNumbers([[10, 4], [34, 6], [92, 2]]));
+// console.log(repeatNumbers([[1, 10]]));
+// console.log(repeatNumbers([[1, 2], [2, 3]]));
+// console.log(repeatNumbers([[10, 4], [34, 6], [92, 2]]));
 
 //EXPECTED OUTPUT
 // 1111111111
@@ -42,3 +73,29 @@ console.log(repeatNumbers([[10, 4], [34, 6], [92, 2]]));
 // 9292
 
 //realized I need to be accessing each nested array, not just one. 
+
+//CLEANED UP SOLUTION: 
+
+const repeatNumbers = function (data) {
+
+  let newArray = []; 
+
+  for (let d = 0; d < data.length; d++) {
+    const pairs = data[d];
+    const numOne = pairs[0];
+    const numTwo = pairs[1];
+    
+    let string = numOne.toString();
+    const retString = string.repeat(numTwo);
+
+    newArray.push(retString);
+  
+  }  
+  return newArray.join(", "); 
+};
+
+
+
+console.log(repeatNumbers([[1, 10]]));
+console.log(repeatNumbers([[1, 2], [2, 3]]));
+console.log(repeatNumbers([[10, 4], [34, 6], [92, 2]]));
