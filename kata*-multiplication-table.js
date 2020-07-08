@@ -4,13 +4,83 @@
 // Create a function named multiplicationTable that receives a number maxValue as input and creates a square multiplication table where maxValue is the largest value in the table.
 
 
-const multiplicationTable = function(maxValue) {
-  // Your code here
-};
+
+const multiplicationTable = function(maxValue) { 
+  let numArray = []
+  let table = '';
+
+  if (maxValue === 0 || maxValue === 1) {
+    numArray.push(maxValue); 
+
+  } else if (maxValue > 1) {
+  
+    for (let x = 1; x <= maxValue; x++) {
+      numArray.push(x);
+    }
+  }
+ 
+  for (let i = 0; i < numArray.length; i++) {
+    let column = numArray[i];
+    for (let j = 0; j < numArray.length; j++) {
+      let row = numArray[j];
+      let multiples = (row * column); 
+      if (row % maxValue === 0) {
+        table += multiples + "\n";
+      } else {
+        table += multiples + " ";
+      } 
+    } 
+  }
+  return table; 
+}
 
 console.log(multiplicationTable(1));
 console.log(multiplicationTable(5));
 console.log(multiplicationTable(10));
+
+
+// const multiplicationTable = function(maxValue) { 
+//   let numArray = []
+//   let table = '';
+
+//   if (maxValue === 0 || maxValue === 1) {
+//     numArray.push(maxValue); 
+
+//   } else if (maxValue > 1) {
+  
+//     for (let x = 1; x <= maxValue; x++) {
+//       numArray.push(x);
+//     }
+//   }
+ 
+//   for (let i = 0; i < numArray.length; i++) {
+// //take column and multiply by row
+//     let column = numArray[i];
+//     // console.log(column); 
+//     for (let j = 0; j < numArray.length; j++) {
+//       // console.log(numArray[j]);
+//       let row = numArray[j];
+//       let multiples = (row * column); 
+//       if (row % maxValue === 0) {
+//         table += multiples + "\n";
+//       } else {
+//         table += multiples + " ";
+//       }
+      
+//     }  
+
+//     }
+ 
+//   // if (table % maxValue === 0); table += '\n';
+//   //        console.log(table); 
+     
+//   return table; 
+
+// }
+
+// console.log(multiplicationTable(1));
+// console.log(multiplicationTable(5));
+// console.log(multiplicationTable(10));
 
 
 // EXPECTED OUTPUT
@@ -34,3 +104,13 @@ console.log(multiplicationTable(10));
 // 10 20 30 40 50 60 70 80 90 100
 
 
+// I need to take that number and create an array equal in length. I can loop through the array and on each number, multiply it as many times -- also using a loop...? Nested loop?
+//Each time I loop through, I need to push my findings into a new...string? 
+//leveraging the index to help me. 
+
+
+//  for (let x = 1; x <= 10; x++) {
+//   console.log(x); 
+//   numArray.push(x); 
+//   console.log(numArray); 
+// }
