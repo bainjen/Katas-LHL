@@ -1,3 +1,28 @@
+const camelCase = input => {
+  let stringArray = input.split(" ");
+  let pushedArray = []
+
+  for (let i = 0; i < stringArray.length; i++) {
+    let word = stringArray[i]; 
+    if (word === stringArray[0]) {
+      pushedArray.push(word); 
+    }
+    else {
+      word.slice(1);
+      let newString = word[0].toUpperCase() + word.slice(1); 
+      pushedArray.push(newString);
+
+    }
+  }
+  return pushedArray.join('')
+}
+
+console.log(camelCase("this is a string"));
+console.log(camelCase("loopy lighthouse"));
+console.log(camelCase("supercalifragalisticexpialidocious"));
+
+
+
 
 // const camelCase = input => {
 //   let stringArray = input.split(" ");
@@ -80,19 +105,44 @@
 // // supercalifragalisticexpialidocious
 
 
-const camelCase = input => {
-    let stringArray = input.split(" ");
-  console.log(stringArray);
-  // if index of string array = 0 then push to new array
-  // else capitalize first letter and then push new to array
-  // then join array and return
-  
+// const camelCase = input => {
+//   let stringArray = input.split(" ");
+//   console.log(stringArray);
 
-}
+//   let pushedArray = []
+//   // if index of string array = 0 then push to new array
+//   // else capitalize first letter and then push new to array
+//   // then join array and return
 
-console.log(camelCase("this is a string"));
-console.log(camelCase("loopy lighthouse"));
-console.log(camelCase("supercalifragalisticexpialidocious"));
+//   for (let i = 0; i < stringArray.length; i++) {
+//     let word = stringArray[i]; 
+//     if (word === stringArray[0]) {
+//       pushedArray.push(word); 
+//       console.log(pushedArray);
+//     } else {
+//       // word.slice(1);
+//       // let smallLetters = word.slice(1);
+//       // console.log(smallLetters); 
+//       // let bigLetter = word[0].toUpperCase(); 
+//       // pushedArray.push(bigLetter);
+//       // pushedArray.push(word); 
+//       // console.log(pushedArray);
+//       word.slice(1);
+//       let newString = word[0].toUpperCase() + word.slice(1); 
+//       pushedArray.push(newString);
+//       console.log(pushedArray);
+//     }
+//   }
+//   return pushedArray.join('')
+
+// }
+
+// console.log(camelCase("this is a string"));
+// console.log(camelCase("loopy lighthouse"));
+// console.log(camelCase("supercalifragalisticexpialidocious"));
+
+
+
 
 
 // > str
