@@ -22,7 +22,17 @@ const calculateChange = function(total, cash) {
   let changeNeeded = cash - total; 
   console.log(changeNeeded); 
 
-  let totalChange = []; 
+  let totalChange = [
+    twentyDollar = 0,
+    tenDollar = 0,
+    fiveDollar = 0,
+    twoDollar = 0,
+    oneDollar = 0,
+    quarter = 0,
+    dime = 0,
+    nickel = 0, 
+    penny = 0
+  ]; 
 
   let denominations = {
     twentyDollar: 2000,
@@ -36,8 +46,13 @@ const calculateChange = function(total, cash) {
     penny: 1
   };
 
+  let counter = 0; 
+  counter++
+  counter++
+  console.log(counter)
+
   let denArray = Object.entries(denominations);
-  // console.log(denArray);
+
 
 //   if (changeNeeded >= denominations.key.value) {
 //     totalChange += that key & value; 
