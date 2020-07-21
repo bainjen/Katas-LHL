@@ -10,9 +10,52 @@
 
 // Our function should be able to handle all of these cases.
 
-const makeCase = function(input, case) {
-  // Put your solution here
+const makeCase = function(input, caseType) {
+
+  switch (caseType) {
+    
+    case "camel":
+      console.log('hi');  
+      break; 
+    
+    case "pascal":
+      console.log('hi');  
+       break; 
+     
+    case "snake":
+      console.log('hi');  
+      break;    
+  
+    case "kebab":
+      console.log('hi');  
+      break; 
+  
+    case "title":
+      console.log('hi');  
+       break; 
+  
+    case "vowel":
+      console.log('hi');  
+      break; 
+    
+    case "consonant":
+      console.log('hi');  
+      break; 
+    
+    case "upper":
+      console.log('hi');  
+       break; 
+     
+    case "lower":
+      console.log('hi');  
+      break; 
+    
+    default: 
+      console.log('hi')
+  }
+
 }
+
 
 console.log(makeCase("this is a string", "camel"));
 console.log(makeCase("this is a string", "pascal"));
@@ -33,4 +76,23 @@ console.log(makeCase("this is a string", ["upper", "snake"]));
 // thIs Is A strIng
 // THiS iS a STRiNG
 // THIS_IS_A_STRING
+
+    // const camelCase = input => {
+  //   let stringArray = input.split(" ");
+  //   let pushedArray = []
+  
+  //   for (let i = 0; i < stringArray.length; i++) {
+  //     let word = stringArray[i]; 
+  //     if (word === stringArray[0]) {
+  //       pushedArray.push(word); 
+  //     }
+  //     else {
+  //       word.slice(1);
+  //       let newString = word[0].toUpperCase() + word.slice(1); 
+  //       pushedArray.push(newString);
+  
+  //     }
+  //   }
+  //   return pushedArray.join('')
+  // }
 
