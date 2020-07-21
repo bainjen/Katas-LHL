@@ -1,29 +1,11 @@
-// In this exercise, we will be given a list of instructors and we will create a single object to organize them based on their course.
-
-// Create a function named organizeInstructors that will receive an array of instructor objects, and will return a new object that has the following format:
-
-// {
-//   CourseName: [instructors]
-// } 
-
-//I am taking in an array of objects [{name: course}, {name: course}]
-//I want to return an object that contains a key or keys with course name(s) and a value that is an array of instructor names. {course name: [instructors, list, here]}
 
 const organizeInstructors = function(instructors) {
-  let resultsObj = {}; //This contains final results including a course name key with a values array of instructor names.
-  const allCourses = instructors.map(item => item.course) // create an array of just courses
-  // console.log(allCourses)
-  // GET ONLY UNIQUE COURSES from the array just created (allCourses)
+  let resultsObj = {}; 
+  const allCourses = instructors.map(item => item.course) 
+
   const uniqueCourses = allCourses.filter((course, i, arr) => {
     return arr.indexOf(course) === i;
-   // console.log(`this is the current item we are on:`)
-    // console.log(item)
-    // console.log(`and this is the original array that we are working from>:`)
-    // console.log(arr)
-    // console.log(arr.indexOf(item))
   })
-  // console.log(uniqueCourses)
-
 
   uniqueCourses.map(courseName => {
     const selectedInstructors = instructors.filter(instructorItem => {
@@ -37,36 +19,8 @@ const organizeInstructors = function(instructors) {
 
     resultsObj[courseName] = selectedInstructorNames
 
-    // resultsObj[courseName] = instructorsArr;
-    // instructors.filter(item => {
-    //   return 
-    // })
   });
-  // console.log(resultsObj)
-  // console.log(uniqueCourses)
 
-  // for (i = 0; i < instructors.length; i++) {
-  //   let course = instructors[i].course;
-  //   let name = instructors[i].name;
-    
-  //   for (y = 0; y < uniqueCourses.length; y++) {
-
-  //     if (course === uniqueCourses[y]) {
-
-  //       instructorsArr.push(instructors[i].name)
-  //       console.log(instructorsArr)
-  //     }
-  //   }
-  // }
-  // for (let i = 0; i < uniqueCourses.length; i++) {
-  //   console.log(uniqueCourses[i])
-  //   for (let y = 0; y < instructors.length; y++) {
-  //     console.log(instructors[y])
-  //     if (uniqueCourses[i] === instructors[y].course) {
-        
-  //     }
-  //   }
-  // }
  return resultsObj
 
 };
@@ -83,6 +37,96 @@ console.log(organizeInstructors([
   {name: "Martha", course: "iOS"},
   {name: "Carlos", course: "Web"}
 ]));
+
+
+
+
+
+// In this exercise, we will be given a list of instructors and we will create a single object to organize them based on their course.
+
+// Create a function named organizeInstructors that will receive an array of instructor objects, and will return a new object that has the following format:
+
+// {
+//   CourseName: [instructors]
+// } 
+
+//I am taking in an array of objects [{name: course}, {name: course}]
+//I want to return an object that contains a key or keys with course name(s) and a value that is an array of instructor names. {course name: [instructors, list, here]}
+
+// const organizeInstructors = function(instructors) {
+//   let resultsObj = {}; //This contains final results including a course name key with a values array of instructor names.
+//   const allCourses = instructors.map(item => item.course) // create an array of just courses
+//   // console.log(allCourses)
+//   // GET ONLY UNIQUE COURSES from the array just created (allCourses)
+//   const uniqueCourses = allCourses.filter((course, i, arr) => {
+//     return arr.indexOf(course) === i;
+//    // console.log(`this is the current item we are on:`)
+//     // console.log(item)
+//     // console.log(`and this is the original array that we are working from>:`)
+//     // console.log(arr)
+//     // console.log(arr.indexOf(item))
+//   })
+//   // console.log(uniqueCourses)
+
+
+//   uniqueCourses.map(courseName => {
+//     const selectedInstructors = instructors.filter(instructorItem => {
+//       return instructorItem.course === courseName
+
+//     })
+
+//     const selectedInstructorNames = selectedInstructors.map(instructorItem => {
+//       return instructorItem.name;
+//     })
+
+//     resultsObj[courseName] = selectedInstructorNames
+
+//     // resultsObj[courseName] = instructorsArr;
+//     // instructors.filter(item => {
+//     //   return 
+//     // })
+//   });
+//   // console.log(resultsObj)
+//   // console.log(uniqueCourses)
+
+//   // for (i = 0; i < instructors.length; i++) {
+//   //   let course = instructors[i].course;
+//   //   let name = instructors[i].name;
+    
+//   //   for (y = 0; y < uniqueCourses.length; y++) {
+
+//   //     if (course === uniqueCourses[y]) {
+
+//   //       instructorsArr.push(instructors[i].name)
+//   //       console.log(instructorsArr)
+//   //     }
+//   //   }
+//   // }
+//   // for (let i = 0; i < uniqueCourses.length; i++) {
+//   //   console.log(uniqueCourses[i])
+//   //   for (let y = 0; y < instructors.length; y++) {
+//   //     console.log(instructors[y])
+//   //     if (uniqueCourses[i] === instructors[y].course) {
+        
+//   //     }
+//   //   }
+//   // }
+//  return resultsObj
+
+// };
+
+// console.log(organizeInstructors([
+//   {name: "Samuel", course: "iOS"},
+//   {name: "Victoria", course: "Web"},
+//   {name: "Karim", course: "Web"},
+//   {name: "Donald", course: "Web"}
+// ]));
+// console.log(organizeInstructors([
+//   {name: "Brendan", course: "Blockchain"},
+//   {name: "David", course: "Web"},
+//   {name: "Martha", course: "iOS"},
+//   {name: "Carlos", course: "Web"}
+// ]));
 
 //I did this vvvvvvvv last week before vacation and now I am not sure what I was doing so I will start over...
 
