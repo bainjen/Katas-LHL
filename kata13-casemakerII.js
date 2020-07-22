@@ -10,119 +10,121 @@
 
 // Our function should be able to handle all of these cases.
 
-const makeCase = function (input, caseType) {
-  
-  resultString = "";
 
-  switch (caseType) {
-    
-    case "camel":
-      for (let i = 0; i < input.length; i++) {
-        if (input[i] === " ") {
-          resultString += input[i + 1].toUpperCase();
-          i++;
-        }
-        else {
-          resultString += input[i]; 
-        }
-      } 
-      return resultString;
-      break; 
-    
-    case "pascal":
-      for (let i = 0; i < input.length; i++) {
-        if (i === 0) {
-          resultString += input[i].toUpperCase();
-        }
-        else if (input[i] === " ") {
-          resultString += input[i + 1].toUpperCase();
-          i++;
-        }
-        else {
-          resultString += input[i]; 
-       }
-     } 
-    return resultString;
-    break; 
-     
-    case "snake":
-      for (let i = 0; i < input.length; i++) {
-        if (input[i] === " ") {
-          resultString += "_";
-        }
-        else {
-          resultString += input[i]; 
-        }
-      } 
-      return resultString; 
-      break;    
-  
-    case "kebab":
-      for (let i = 0; i < input.length; i++) {
-        if (input[i] === " ") {
-          resultString += "-";
-        }
-        else {
-          resultString += input[i]; 
-        }
-      } 
-      return resultString;
-      break; 
-  
-    case "title":
-      for (let i = 0; i < input.length; i++) {
-        if (i === 0) {
-          resultString += input[i].toUpperCase();
-        }
-        else if (input[i] === " ") {
-          resultString += input[i];
-          resultString += input[i + 1].toUpperCase();
-          i++;
-        }
-        else {
-          resultString += input[i]; 
-       }
-     } 
-    return resultString; 
-       break; 
-  
-    case "vowel":
-      for (let i = 0; i < input.length; i++) {
-        if (input[i] === "a" || input[i] === "e" || input[i] === "i" || input[i] === "o" || input[i] === "u") {
-          resultString += input[i].toUpperCase();
-        }
-        else {
-          resultString += input[i]; 
-        }
-      } 
-      return resultString;
-      break; 
-    
-    case "consonant":
-      for (let i = 0; i < input.length; i++) {
-        if (input[i] === "a" || input[i] === "e" || input[i] === "i" || input[i] === "o" || input[i] === "u") {
-          resultString += input[i];
-        }
-        else {
-          resultString += input[i].toUpperCase(); 
-        }
-      } 
-      return resultString;
-      break; 
-    
-    case "upper":
-      resultString += input.toUpperCase();
-      return resultString;
-       break; 
-     
-    case "lower":
-      resultString += input.toLowerCase();
-      return resultString;
-      break; 
-    
-    default:
-      return resultString;
+const makeCase = function (input, caseType) {
+
+  let caseTypeArray;
+
+  if (!Array.isArray(caseType)) {
+    caseTypeArray = [caseType];
+  } else {
+    caseTypeArray = caseType; 
   }
+  
+  let newInput = input;
+
+  for (let singleCaseType of caseTypeArray) {
+    let resultString = "";
+    switch (singleCaseType) {
+    
+      case "camel":
+        for (let i = 0; i < newInput.length; i++) {
+          if (newInput[i] === " ") {
+            resultString += newInput[i + 1].toUpperCase();
+            i++;
+          }
+          else {
+            resultString += newInput[i];
+          }
+        }
+        break;
+    
+      case "pascal":
+        for (let i = 0; i < newInput.length; i++) {
+          if (i === 0) {
+            resultString += newInput[i].toUpperCase();
+          }
+          else if (newInput[i] === " ") {
+            resultString += newInput[i + 1].toUpperCase();
+            i++;
+          }
+          else {
+            resultString += newInput[i];
+          }
+        }
+        break;
+     
+      case "snake":
+        for (let i = 0; i < newInput.length; i++) {
+          if (newInput[i] === " ") {
+            resultString += "_";
+          }
+          else {
+            resultString += newInput[i];
+          }
+        }
+        break;
+  
+      case "kebab":
+        for (let i = 0; i < newInput.length; i++) {
+          if (newInput[i] === " ") {
+            resultString += "-";
+          }
+          else {
+            resultString += newInput[i];
+          }
+        }
+        break;
+  
+      case "title":
+        for (let i = 0; i < newInput.length; i++) {
+          if (i === 0) {
+            resultString += newInput[i].toUpperCase();
+          }
+          else if (newInput[i] === " ") {
+            resultString += newInput[i];
+            resultString += newInput[i + 1].toUpperCase();
+            i++;
+          }
+          else {
+            resultString += newInput[i];
+          }
+        }
+        break;
+  
+      case "vowel":
+        for (let i = 0; i < newInput.length; i++) {
+          if (newInput[i] === "a" || newInput[i] === "e" || newInput[i] === "i" || newInput[i] === "o" || newInput[i] === "u") {
+            resultString += newInput[i].toUpperCase();
+          }
+          else {
+            resultString += newInput[i];
+          }
+        }
+        break;
+    
+      case "consonant":
+        for (let i = 0; i < newInput.length; i++) {
+          if (newInput[i] === "a" || newInput[i] === "e" || newInput[i] === "i" || newInput[i] === "o" || newInput[i] === "u") {
+            resultString += newInput[i];
+          }
+          else {
+            resultString += newInput[i].toUpperCase();
+          }
+        }
+        break;
+    
+      case "upper":
+        resultString += newInput.toUpperCase();
+        break;
+     
+      case "lower":
+        resultString += newInput.toLowerCase();
+        break;
+    }
+    newInput = resultString;
+  }
+  return newInput;
 }
 
 
@@ -133,11 +135,155 @@ console.log(makeCase("this is a string", "kebab"));
 console.log(makeCase("this is a string", "title"));
 console.log(makeCase("this is a string", "vowel"));
 console.log(makeCase("this is a string", "consonant"));
-console.log(makeCase("this is a string", "vowel"));
-console.log(makeCase("this is a string", "consonant"));
 console.log(makeCase("this IS a string", "upper"));
 console.log(makeCase("this is a STring", "lower"));
 console.log(makeCase("this is a string", ["upper", "snake"]));
+
+
+
+// const makeCase = function (input, caseType) {
+  
+//   // let resultString = "";
+  
+//   let caseTypeArray;
+
+//   if (!Array.isArray(caseType)) {
+//     caseTypeArray = [caseType];
+//   } else {
+//     caseTypeArray = caseType; 
+//   }
+  
+//   let newInput = input;
+
+//   for (let singleCaseType of caseTypeArray) {
+//     let resultString = "";
+//     switch (singleCaseType) {
+    
+//       case "camel":
+//         for (let i = 0; i < newInput.length; i++) {
+//           if (newInput[i] === " ") {
+//             resultString += newInput[i + 1].toUpperCase();
+//             i++;
+//           }
+//           else {
+//             resultString += newInput[i];
+//           }
+//         }
+//         // return resultString;
+//         break;
+    
+//       case "pascal":
+//         for (let i = 0; i < newInput.length; i++) {
+//           if (i === 0) {
+//             resultString += newInput[i].toUpperCase();
+//           }
+//           else if (newInput[i] === " ") {
+//             resultString += newInput[i + 1].toUpperCase();
+//             i++;
+//           }
+//           else {
+//             resultString += newInput[i];
+//           }
+//         }
+//         // return resultString;
+//         break;
+     
+//       case "snake":
+//         for (let i = 0; i < newInput.length; i++) {
+//           if (newInput[i] === " ") {
+//             resultString += "_";
+//           }
+//           else {
+//             resultString += newInput[i];
+//           }
+//         }
+//         // return resultString;
+//         break;
+  
+//       case "kebab":
+//         for (let i = 0; i < newInput.length; i++) {
+//           if (newInput[i] === " ") {
+//             resultString += "-";
+//           }
+//           else {
+//             resultString += newInput[i];
+//           }
+//         }
+//         // return resultString;
+//         break;
+  
+//       case "title":
+//         for (let i = 0; i < newInput.length; i++) {
+//           if (i === 0) {
+//             resultString += newInput[i].toUpperCase();
+//           }
+//           else if (newInput[i] === " ") {
+//             resultString += newInput[i];
+//             resultString += newInput[i + 1].toUpperCase();
+//             i++;
+//           }
+//           else {
+//             resultString += newInput[i];
+//           }
+//         }
+//         // return resultString;
+//         break;
+  
+//       case "vowel":
+//         for (let i = 0; i < newInput.length; i++) {
+//           if (newInput[i] === "a" || newInput[i] === "e" || newInput[i] === "i" || newInput[i] === "o" || newInput[i] === "u") {
+//             resultString += newInput[i].toUpperCase();
+//           }
+//           else {
+//             resultString += newInput[i];
+//           }
+//         }
+//         // return resultString;
+//         break;
+    
+//       case "consonant":
+//         for (let i = 0; i < newInput.length; i++) {
+//           if (newInput[i] === "a" || newInput[i] === "e" || newInput[i] === "i" || newInput[i] === "o" || newInput[i] === "u") {
+//             resultString += newInput[i];
+//           }
+//           else {
+//             resultString += newInput[i].toUpperCase();
+//           }
+//         }
+//         // return resultString;
+//         break;
+    
+//       case "upper":
+//         resultString += newInput.toUpperCase();
+//         // return resultString;
+//         break;
+     
+//       case "lower":
+//         resultString += newInput.toLowerCase();
+//         // return resultString;
+//         break;
+    
+//       default:
+//         // return resultString;
+
+
+//     }
+//     newInput = resultString;
+//   }
+//   return newInput;
+// }
+
+
+// console.log(makeCase("this is a string", "camel"));
+// console.log(makeCase("this is a string", "pascal"));
+// console.log(makeCase("this is a string", "snake"));
+// console.log(makeCase("this is a string", "kebab"));
+// console.log(makeCase("this is a string", "title"));
+// console.log(makeCase("this is a string", "vowel"));
+// console.log(makeCase("this is a string", "consonant"));
+// console.log(makeCase("this IS a string", "upper"));
+// console.log(makeCase("this is a STring", "lower"));
+// console.log(makeCase("this is a string", ["upper", "snake"]));
 
 
 // Expected Output
