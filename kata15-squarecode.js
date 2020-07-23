@@ -24,25 +24,35 @@ const squareCode = function(message) {
   const spacelessMess = message.replace(/\s+/g, '');
   const length = spacelessMess.length;
   const sqRoot = Math.ceil(Math.sqrt(length));
-  // console.log(sqRoot)
-  // console.log(spacelessMess.length)
-  const numOfColumns = sqRoot;
-  const numofRows = Math.ceil(spacelessMess.length / sqRoot);
-  console.log(numOfColumns, numofRows);
-  // let newArray = [];
-  
+  let holderArr = [];
+  let holderStr = "";
+  let result = "";
+
   for (let i = 0; i < spacelessMess.length; i++) {
-    let holder = "";
+    
     if ([i + 1] % sqRoot === 0) {
-     
-      holder += spacelessMess[i] + "\n";
-     
+      holderStr += spacelessMess[i] + "\n";
     } else {
-      holder += spacelessMess[i];
-    }
-    console.log(holder);
+      holderStr += spacelessMess[i];
+    }  
   }
-  
+
+  const space = /\n/g;
+  holderArr = holderStr.split(space).map(s => s.split('')); 
+
+  let backCounter = sqRoot;
+  while (backCounter > 0) {
+    for (let j = 0; j < holderArr.length; j++) {
+      const stringArray = holderArr[j];
+      const shiftedLetter = stringArray.shift();
+      if (shiftedLetter !== undefined) {
+       result += shiftedLetter;
+      } 
+    }
+    result += ' ';
+    backCounter--;
+  }
+  return result;
 };
 
 console.log(squareCode("chill out"));
@@ -77,6 +87,19 @@ console.log(squareCode("if man was meant to stay on the ground god would have gi
 //   }
 // console.log(newArray)
 
+  // for (let j = 0; j < newArray.length; j++) {
+  //   let row = newArray[j]; 
+  //   console.log(row);
+  //   console.log(row[0])
+  //   // result += row[0];
+  //   // console.log(result)
+  //   // for (let k = 0; k < row.length; k++) {
+  //   //   // result += row[k] + "\n";
+  
+  //   // }
+  // }
+
+// loop through using shift to recreate rows in the end
 
 //note to self on Wed afternoon so I don't forget:  i need to figure out how to deal with the remainder when the number doesn't make a perfect square. This is a problem
 // vagrant [katas]> node kata15-squarecode.js 
