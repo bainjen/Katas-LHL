@@ -20,25 +20,29 @@
 
 
 const squareCode = function(message) {
-  // draftingArr = []
-  // message.split(" ").join(' ');
-  // message.replace(/" "/g, "")
-  let spacelessMess = message.replace(/\s+/g, '');
-  let length = spacelessMess.length;
-  let sqRoot = Math.ceil(Math.sqrt(length));
-  console.log(sqRoot)
-  // spacelessMess = spacelessMess.split('');
-  for (let i = 0; i < spacelessMess.length; i++) {
-    // console.log(spacelessMess[i])
-    console.log(i)
-    if ([i+1] % sqRoot === 0) {
-      console.log('right here!')
-      // spacelessMess[i] += "\n"; 
-    }
-  
-  }
-  console.log(spacelessMess)
 
+  const spacelessMess = message.replace(/\s+/g, '');
+  const length = spacelessMess.length;
+  const sqRoot = Math.ceil(Math.sqrt(length));
+  // console.log(sqRoot)
+  // console.log(spacelessMess.length)
+  const numOfColumns = sqRoot;
+  const numofRows = Math.ceil(spacelessMess.length / sqRoot);
+  console.log(numOfColumns, numofRows);
+  // let newArray = [];
+  
+  for (let i = 0; i < spacelessMess.length; i++) {
+    let holder = "";
+    if ([i + 1] % sqRoot === 0) {
+     
+      holder += spacelessMess[i] + "\n";
+     
+    } else {
+      holder += spacelessMess[i];
+    }
+    console.log(holder);
+  }
+  
 };
 
 console.log(squareCode("chill out"));
@@ -46,15 +50,59 @@ console.log(squareCode("feed the dog"));
 console.log(squareCode("have a nice day"));
 console.log(squareCode("if man was meant to stay on the ground god would have given us roots"));
 
+
+
 // Expected Output
 // clu hlt io  
 // fto ehg ee dd
 // hae and via ecy
 // imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoau
 
+//slice and add to new array?
+
+//abandoned code
+
+  // draftingArr = []
+  // message.split(" ").join(' ');
+  // message.replace(/" "/g, "")
+
+    // let slicedStr = spacelessMess.slice(i, i + numOfColumns -1); 
+    // console.log(slicedStr)
+
+    //   for (let i = 0; i < spacelessMess.length; i++) {
+//     newArray.push(spacelessMess[i])
+//     // let slicedStr = spacelessMess.slice(i, i + numOfColumns -1); 
+//     // console.log(slicedStr)
+//     // console.log(spacelessMess[i])
+//   }
+// console.log(newArray)
+
 
 //note to self on Wed afternoon so I don't forget:  i need to figure out how to deal with the remainder when the number doesn't make a perfect square. This is a problem
 // vagrant [katas]> node kata15-squarecode.js 
+
+//starting over from yesterday's code to reorinet. For reference, this is where I was: 
+// const squareCode = function(message) {
+//   // draftingArr = []
+//   // message.split(" ").join(' ');
+//   // message.replace(/" "/g, "")
+//   let spacelessMess = message.replace(/\s+/g, '');
+//   let length = spacelessMess.length;
+//   let sqRoot = Math.ceil(Math.sqrt(length));
+//   console.log(sqRoot)
+//   // spacelessMess = spacelessMess.split('');
+//   for (let i = 0; i < spacelessMess.length; i++) {
+//     // console.log(spacelessMess[i])
+//     console.log(i)
+//     if ([i+1] % sqRoot === 0) {
+      
+//       console.log('right here!')
+//       // spacelessMess[i] += "\n"; 
+//     }
+  
+//   }
+//   console.log(spacelessMess)
+
 // 3
 // 0
 // 1
