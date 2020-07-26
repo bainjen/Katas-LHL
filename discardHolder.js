@@ -182,3 +182,122 @@
 //   }
 
 // }
+
+
+
+
+// let emptyBoard = [
+//       [0, 0, 0, 0, 0, 0, 0, 0],
+//       [0, 0, 0, 0, 0, 0, 0, 0],
+//       [0, 0, 0, 0, 0, 0, 0, 0],
+//       [0, 0, 0, 0, 0, 0, 0, 0],
+//       [0, 0, 0, 0, 0, 0, 0, 0],
+//       [0, 0, 0, 0, 0, 0, 0, 0],
+//       [0, 0, 0, 0, 0, 0, 0, 0],
+//       [0, 0, 0, 0, 0, 0, 8, 9]
+// ];
+
+// let board = [];
+
+
+// let boardCoordinatesMap = [];
+
+// // for (y = 0; y < emptyBoard.length; y++) {
+// //   let newRow = emptyBoard[y];
+// //     for (x = 0; x < emptyBoard.length; x++) {
+// //       let positions = emptyBoard[y][x]; 
+// //       let posCoordinates = [x, y]; 
+// //       // board = posCoordinates;
+// //       // console.log(positions);
+// //       // console.log(posCoordinates)
+// //      newRow += posCoordinates;
+// //       boardCoordinatesMap.push(newRow);
+// //       // if (blackQueen === posCoordinates) {
+// //       //   positions = 1;
+// //       // }
+  
+// //     }
+  
+// //   }
+// //   console.log(emptyBoard);
+// // console.log(boardCoordinatesMap)
+// // console.log(emptyBoard, boardCoordinatesMap); 
+
+// let example = [];
+// for (let i = 0; i < 8; i++) {
+//   // let row = example.push(0);
+//   // console.log(row)
+//   console.log(i)
+//   // for (let j = 0; j < 8; j++) {
+//   //    row++
+//   // }
+ 
+// } 
+// console.log(example); 
+
+// var ary = new Uint8Array(10); 
+// console.log(ary);
+
+// let emptyboard = [];
+// let squareNum = 8;
+// let rowHolder = new Uint8Array(squareNum); 
+// console.log(rowHolder);
+
+// for (let i = 0; i < squareNum; i++) {
+//   emptyboard.push(rowHolder);
+// }
+
+// console.log(emptyboard);
+
+// let queen1 = [2, 5];
+// let queen2 = [0, 0];
+
+// let chessboard = [];
+// let times = 8;
+// for(let i = 0; i < times; i++){
+// chessboard[i] = [];
+// for(let n = 0; n < times; n++){
+// chessboard[i][n] = 0;
+// };
+// };
+// chessboard[queen1[0]][queen1[1]] = 1;
+// chessboard[queen2[0]][queen2[1]] = 1;
+// console.log(chessboard);
+
+
+
+
+let whiteQueen = [2, 5];
+let blackQueen = [0, 0];
+
+let board = [];
+let squareSize = 8;
+for(let i = 0; i < squareSize; i++){
+  board[i] = [];
+  for(let r = 0; r < squareSize; r++){
+    board[i][r] = 0;
+  };
+};
+
+board[whiteQueen[0]][whiteQueen[1]] = 1;
+board[blackQueen[0]][blackQueen[1]] = 1;
+console.log(board)
+
+
+// let whiteQueen = [2, 5];
+// let blackQueen = [0, 0];
+
+// let board = [];
+// let squareSize = 8;
+// for(let i = 0; i < squareSize; i++){
+//   let row = board[i]
+//   row = [];
+//   for(let r = 0; r < squareSize; r++){
+//     board[i][r] = 0;
+//   };
+// };
+
+// board[whiteQueen[0]][whiteQueen[1]] = 1;
+// board[blackQueen[0]][blackQueen[1]] = 1;
+// console.log(board)
+
